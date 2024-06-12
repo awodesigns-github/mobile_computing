@@ -1,11 +1,8 @@
 import 'package:constraints_example/pages/registration_page.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
-/// The root widget of the application.
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -14,10 +11,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Constraints Example',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.green,),
       home: const HomePage(),
+      routes: {
+        '/home': (context) => const HomePage(),
+        'registration': (context) => const RegistrationPage()
+      },
     );
   }
 }
@@ -29,26 +28,21 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Responsive Design')),
+      appBar: AppBar(title: const Text('R E S P O N S I V E N E S S')),
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {
-            // Choose the layout based on the screen width.
             if (constraints.maxWidth > 600) {
               return const WideLayout();
             } else {
-              return NarrowLayout();
+              return const NarrowLayout();
             }
           },
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Navigate to the registration page.
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => RegistrationPage()),
-          );
+          Navigator.pushNamed(context, '/registration');
         },
         child: Icon(Icons.navigate_next),
       ),
@@ -64,8 +58,8 @@ class WideLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(child: Container(color: Colors.blue, height: 200)),
-        Expanded(child: Container(color: Colors.red, height: 200)),
+        Expanded(child: Container(color: Colors.green, height: 200)),
+        Expanded(child: Container(color: Colors.green, height: 200)),
       ],
     );
   }
@@ -79,8 +73,8 @@ class NarrowLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(child: Container(color: Colors.blue, height: 200)),
-        Expanded(child: Container(color: Colors.red, height: 200)),
+        Expanded(child: Container(color: Colors.green, height: 200)),
+        Expanded(child: Container(color: Colors.green, height: 200)),
       ],
     );
   }
