@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       home: const HomePage(),
       routes: {
         '/home': (context) => const HomePage(),
-        'registration': (context) => const RegistrationPage()
+        '/registration': (context) => const RegistrationPage()
       },
     );
   }
@@ -28,7 +28,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('R E S P O N S I V E N E S S')),
+      appBar: AppBar(
+        title: const Text('R E S P O N S I V E N E S S'),
+        centerTitle: true,
+      ),
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {
@@ -58,8 +61,13 @@ class WideLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(child: Container(color: Colors.green, height: 200)),
-        Expanded(child: Container(color: Colors.green, height: 200)),
+        Expanded(
+            child: Container(
+                color: Colors.green,
+                height: 200
+            )
+        ),
+        Expanded(child: Container(color: Colors.blueGrey, height: 200)),
       ],
     );
   }
@@ -74,7 +82,7 @@ class NarrowLayout extends StatelessWidget {
     return Column(
       children: [
         Expanded(child: Container(color: Colors.green, height: 200)),
-        Expanded(child: Container(color: Colors.green, height: 200)),
+        Expanded(child: Container(color: Colors.blueGrey, height: 200)),
       ],
     );
   }

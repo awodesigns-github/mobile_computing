@@ -76,7 +76,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   ),
                   DropdownButtonFormField<String>(
                     decoration: InputDecoration(labelText: 'Gender'),
-                    items: ['Male', 'Female', 'Other']
+                    items: ['Male', 'Female']
                         .map((gender) => DropdownMenuItem(
                       value: gender,
                       child: Text(gender),
